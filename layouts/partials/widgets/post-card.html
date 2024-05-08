@@ -1,0 +1,38 @@
+{{ $permalink := .Permalink }}
+<div class="card mb-3 h-100" style="max-width: 800px;">
+    <div class="row g-0" style="height: 120px;">
+        {{ if isset .Params "images" }}
+        <div class="col-md-8">
+            <div class="card-body">
+                <a class="link-dark link-underline-opacity-0 link-underline-opacity-0-hover" href="{{ $permalink }}">
+                    <h5 class="card-title">{{ .Title }}</h5>
+                </a>
+                <!-- <p class="card-text">{{ .Summary }}</p> -->
+                <p class="card-text"><small class="text-body-secondary">{{ .Site.Params.Author }} | <time>{{ .PublishDate.Format "January 2, 2006"}}</time></small></p>
+                {{ range .Params.categories }}
+                <a href="/categories/{{ . | urlize}}"><span class="badge text-bg-primary rounded-pill">{{ . }}</span></a>
+                {{ end }}
+            </div>
+        </div>
+        {{ $title := .Title}}
+        {{ with .Params.images }}
+        <div class="col-md-4">
+            <img src="{{ index . 0 }}" class="post-img img-fluid rounded-start" alt="{{ $title }}">
+        </div>
+        {{ end }}
+        {{ else }}
+        <div class="col-md-12">
+            <div class="card-body">
+                <a class="link-dark link-underline-opacity-0 link-underline-opacity-0-hover" href="{{ $permalink }}">
+                    <h5 class="card-title">{{ .Title }}</h5>
+                </a>
+                <!-- <p class="card-text">{{ .Summary }}</p> -->
+                <p class="card-text"><small class="text-body-secondary">{{ .Site.Params.Author }} | <time>{{ .PublishDate.Format "January 2, 2006"}}</time></small></p>
+                {{ range .Params.categories }}
+                <a href="/categories/{{ . | urlize}}"><span class="badge text-bg-primary rounded-pill">{{ . }}</span></a>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>

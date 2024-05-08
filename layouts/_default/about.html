@@ -1,0 +1,87 @@
+{{ define "main" }}
+
+<div class="container">
+  <div class="resume mt-2 mt-lg-5">
+    <div class="row profile justify-content-between">
+      <div class="col-3">
+        <img class="profile-image border" src="{{ .Params.image }}">
+      </div>
+      <div class="col-8 mt-2 mt-lg-0">
+        <h1 class="resume-name fw-bold mt-3"> {{ .Params.Name }}</h1>
+        <p class="resume-job mt-3"> {{ .Params.Job }} </p>
+        <hr>
+      </div>
+    </div>
+    <div class="row mt-lg-5 mt-3 justify-content-between resume-about">
+      <div class="col-lg-3">
+        {{ range .Params.About.Contact}}
+        <div class="contianer-fluid mb-2">
+          <span class="icon d-inline-block align-text-top">
+            <i class='{{ .pre }} me-3' style="font-size: 1.1em;"></i>
+            {{ if .link }}
+            <a class="link-dark link-offset-2" href="{{ .link }}">{{ .content }}</a>
+            {{ else }}
+            {{ .content }}
+            {{ end }}
+          </span>
+        </div>
+        {{ end }}
+      </div>
+      <div class="col-lg-8 mt-3 mt-lg-0">
+        <h3 class="fw-bold resume-subheading"> ABOUT ME </h3>
+        <p>
+          {{ .Params.About.Content }}
+        </p>
+      </div>
+    </div>
+    <div class="row mt-lg-5 mt-2 justify-content-between resume-info">
+      <div class="col-lg-3">
+        <div class="resume-education mt-3 mt-lg-0">
+          <h3 class="fw-bold resume-subheading"> EDUCATION </h3>
+          {{ range .Params.Education }}
+          <div class="degree">
+            <h5> {{ .degree }} </h5>
+            <h6> {{ .school }} </h6>
+            {{ .date }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="resume-expertise mt-3 mt-lg-5">
+          <h3 class="fw-bold resume-subheading"> EXPERTISE </h3>
+          <ul>
+            {{ range .Params.Expertise }}
+            <li> {{ . }} </li>
+            {{ end }}
+          </ul>
+        </div>
+        <div class="resume-language mt-3 mt-lg-5">
+          <h3 class="fw-bold resume-subheading"> LANGUAGE </h3>
+          <ul>
+            {{ range .Params.Language }}
+            <li> {{ . }} </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-8 mt-3 mt-lg-0">
+        <div class="resume-project">
+          <h3 class="fw-bold resume-subheading"> PROJECTS </h3>
+          <div class="timeline mt-4">
+            {{ range .Params.projects }}
+            <div class="card timeline-item border-0">
+              <div class="card-body pt-0 ps-0">
+                <h5 class="card-title">{{ .title }}</h5>
+                <h6 class="text-muted">{{ .date }}</h6>
+                {{ range .contents }}
+                <li class="card-text">{{ . }}</li>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

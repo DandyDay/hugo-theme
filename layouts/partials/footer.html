@@ -1,0 +1,15 @@
+<footer class="footer bg-body-tertiary pt-3">
+    <div class="container">
+        <div class="row text-center justify-content-md-center">
+            {{ range .Site.Menus.footer }}
+            <div class="col-2 mb-2">
+                <a href="{{ .URL }}" class="link-dark link-offset-1 link-underline-opacity-0 link-underline-opacity-100-hover">{{ .Name }}</a>
+            </div>
+            {{ end }}
+        </div>
+        <div class="row">
+            <p class="small text-body-secondary">© 2024 <a class="fw-semibold link-secondary link-offset-1 link-underline-opacity-0 link-underline-opacity-100-hover" href="{{.Params.baseURL}}">Jinho Choi</a>. Some rights reserved.</p>
+        </div>
+    </div>
+</footer>
+

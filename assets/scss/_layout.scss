@@ -1,0 +1,93 @@
+@media (max-width: 991.98px) {
+  .navbar .bd-navbar-toggle {
+    width: 3 * 2.125rem;
+  }
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  font-weight: bold;
+}
+
+.navbar-brand {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.profile-image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.resume {
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif
+}
+
+// .resume h1, .resume h2, .resume h3, .resume h4, .resume h5, .resume h6 {
+//     font-family: Signika, sans-serif;
+// }
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 3px;
+  bottom: 20px;
+  width: 3px;
+  background: #555;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  margin-left: -10px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 3px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 3px solid #555;
+}
+
+@media (max-width: 991.98px) {
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item {
+        margin-left: 0px;
+    }
+}
+
+[data-bs-theme=dark] .link-dark {
+    color: RGBA(var(--bs-light-rgb), var(--bs-link-opacity, 1)) !important;
+    text-decoration-color: RGBA(var(--bs-light-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+
+[data-bs-theme=dark] .link-dark:hover, [data-bs-theme=dark] .link-dark:focus {
+    color: RGBA(249, 250, 251, var(--bs-link-opacity, 1)) !important;
+    text-decoration-color: RGBA(249, 250, 251, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.navbar-brand {
+    font-family: Impact, Signika, sans-serif;
+    font-size: 1.5em;
+}
+
+.footer {
+    font-family: "Source Sans Pro","Microsoft Yahei",sans-serif
+}
