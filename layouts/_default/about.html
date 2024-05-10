@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<div class="container">
+<div class="container max-1000px">
   <div class="resume mt-2 mt-lg-5">
     <div class="row profile justify-content-between">
       <div class="col-3">
@@ -48,19 +48,25 @@
         </div>
         <div class="resume-expertise mt-3 mt-lg-5">
           <h3 class="fw-bold resume-subheading"> EXPERTISE </h3>
-          <ul>
+          <dl class="resume-dl justify-content-between">
             {{ range .Params.Expertise }}
-            <li> {{ . }} </li>
+            <dt class="fl"> {{ .skill }} </dt>
+            <dd><div class="fr">
+                {{ range (seq .level ) }}
+                <i class='fas fa-star'></i>
+                {{ end }}
+            </div></dd>
             {{ end }}
-          </ul>
+          </dl>
         </div>
         <div class="resume-language mt-3 mt-lg-5">
           <h3 class="fw-bold resume-subheading"> LANGUAGE </h3>
-          <ul>
+          <dl class="resume-dl">
             {{ range .Params.Language }}
-            <li> {{ . }} </li>
+            <dt class="fl"> {{ .lang }} </dt>
+            <dd><div class="fr"> {{ .level }} </div></dd>
             {{ end }}
-          </ul>
+          </dl>
         </div>
       </div>
       <div class="col-lg-8 mt-3 mt-lg-0">

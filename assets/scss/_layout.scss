@@ -1,7 +1,15 @@
 @media (max-width: 991.98px) {
   .navbar .bd-navbar-toggle {
-    width: 3 * 2.125rem;
+    width: 3 * 40px;
   }
+}
+
+.max-800px {
+    max-width: 800px !important;
+}
+
+.max-1000px {
+    max-width: 1000px !important;
 }
 
 .navbar-nav .nav-link.active,
@@ -14,20 +22,22 @@
   padding-right: 0.5rem;
 }
 
+.resume {
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif
+}
+
+.resume .resume-name {
+    font-family: Signika, sans-serif;
+}
+
+// resume css
+
 .profile-image {
   object-fit: cover;
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
 }
-
-.resume {
-  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif
-}
-
-// .resume h1, .resume h2, .resume h3, .resume h4, .resume h5, .resume h6 {
-//     font-family: Signika, sans-serif;
-// }
 
 .timeline {
   position: relative;
@@ -64,34 +74,70 @@
 }
 
 @media (max-width: 991.98px) {
-    .timeline::before {
-        left: 10px;
-    }
+  .timeline::before {
+    left: 10px;
+  }
 
-    .timeline-item {
-        margin-left: 0px;
-    }
+  .timeline-item {
+    margin-left: 0px;
+  }
 }
+
+.resume-dl dt::after {
+    content: " :";
+    color: var(--bs-secondary-color);
+}
+
+.resume-dl .fr {
+    float: none;
+    display: inline-block;
+    margin-left: .25rem;
+}
+
+.resume-dl .fl {
+    float: left;
+}
+
+// resume end
 
 [data-bs-theme=dark] .link-dark {
-    color: RGBA(var(--bs-light-rgb), var(--bs-link-opacity, 1)) !important;
-    text-decoration-color: RGBA(var(--bs-light-rgb), var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(var(--bs-light-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-light-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 
-[data-bs-theme=dark] .link-dark:hover, [data-bs-theme=dark] .link-dark:focus {
-    color: RGBA(249, 250, 251, var(--bs-link-opacity, 1)) !important;
-    text-decoration-color: RGBA(249, 250, 251, var(--bs-link-underline-opacity, 1)) !important;
+[data-bs-theme=dark] .link-dark:hover,
+[data-bs-theme=dark] .link-dark:focus {
+  color: RGBA(249, 250, 251, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(249, 250, 251, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .navbar-brand {
-    font-family: Impact, Signika, sans-serif;
-    font-size: 1.5em;
+  font-family: Impact, Signika, sans-serif;
+  font-size: 1.5em;
 }
 
 .footer {
-    font-family: "Source Sans Pro","Microsoft Yahei",sans-serif
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif
 }
 
 .navbar .navbar-toggler {
-    border: 0;
+  border: 0;
+}
+
+// post list
+.post-title {
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+
+.list-category {
+    color: var(--bs-primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.list-tag {
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--bs-primary-border-subtle)
 }
