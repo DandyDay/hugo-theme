@@ -1,3 +1,7 @@
+.max-756px {
+    max-width: 756px !important;
+}
+
 .max-900px {
     max-width: 900px !important;
 }
@@ -289,6 +293,7 @@ main {
     width: 100%;
     object-fit: cover;
     border-radius: 1.25rem;
+    height: 13.1rem;
 }
 
 .post-card h3 {
