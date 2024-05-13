@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<div class="container max-1000px">
-  <div class="resume mt-2 mt-lg-5">
+<div class="container max-900px">
+  <div class="resume pt-3 pt-lg-5">
     <div class="row profile justify-content-between">
       <div class="col-3">
         <img class="profile-image border" src="{{ .Params.image }}">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row mt-lg-5 mt-3 justify-content-between resume-about">
-      <div class="col-lg-3">
+      <div class="col-md-4 pe-4">
         {{ range .Params.About.Contact}}
         <div class="contianer-fluid mb-2">
           <span class="icon d-inline-block align-text-top">
@@ -27,7 +27,7 @@
         </div>
         {{ end }}
       </div>
-      <div class="col-lg-8 mt-3 mt-lg-0">
+      <div class="col-md-8 mt-3 mt-lg-0">
         <h3 class="fw-bold resume-subheading"> ABOUT ME </h3>
         <p>
           {{ .Params.About.Content }}
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="row mt-lg-5 mt-2 justify-content-between resume-info">
-      <div class="col-lg-3">
+      <div class="col-md-4 pe-5">
         <div class="resume-education mt-3 mt-lg-0">
           <h3 class="fw-bold resume-subheading"> EDUCATION </h3>
           {{ range .Params.Education }}
@@ -69,7 +69,7 @@
           </dl>
         </div>
       </div>
-      <div class="col-lg-8 mt-3 mt-lg-0">
+      <div class="col-md-8 mt-3 mt-lg-0">
         <div class="resume-project">
           <h3 class="fw-bold resume-subheading"> PROJECTS </h3>
           <div class="timeline mt-4">

@@ -1,71 +1,41 @@
 {{ define "main" }}
-<div class="container mt-3 max-1000px">
+<div class="container py-5 max-900px">
   <section class="section">
     <article>
-      <div class="columns is-centered">
-        <div class="column">
-          <h1 class="title is-1">{{ .Title }}</h1>
-          <div class="title subtitle is-6">
-            <div class="columns is-vcentered">
-              <div class="column">
-                <div class="columns is-vcentered is-mobile">
-                  <div class="column post-meta">
-                    <p>Posted <time>{{ .PublishDate.Format "January 2, 2006" }}</time></p>
-                    <div class="columns is-justify-content-space-between">
-                      <p class="column">By {{ .Site.Params.Author }}</p>
-                      <span class="column readtime has-text-right"> <em>{{ .ReadingTime }} min</em> read</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{ with .Params.images }}
-          <figure class="title-image">
-            <img src="{{ index . 0 }}" alt="">
-          </figure>
-          {{ end }}
-          <div class="content">
-            {{ .Content }}
-          </div>
+      <div class="row text-center">
+        <h1>{{ .Title }}</h1>
+        <div class="post-info">
+          <p class="mb-0">
+            {{ index .Params.Categories 0 }} |
+            <time>{{ .PublishDate.Format "2006-01-02" }}</time>
+          </p>
+        </div>
+        {{ with .Params.image }}
+        <figure class="title-image mt-5 mb-0">
+          <img class="w-100 mx-auto d-block post-thumbnail" src="{{ . }}" alt="">
+        </figure>
+        {{ end }}
+      </div>
+      <div class="row px-5 mx-4 mt-5">
+        <div class="content px-0">
+          {{ .Content }}
         </div>
       </div>
-      <div class="column has-text-left">
-        {{ range $idx, $category := .Params.categories }}
-        {{- if ne $idx 0 }}, {{ end }}<a href="{{ " categories/" | relURL }}{{ $category | urlize }}">{{ $category
-          }}</a>
+      <div class="d-flex mx-4 px-5 mt-4">
+        {{ range .Params.tags }}
+        <a class="link-secondary link-offset-1 link-underline-opacity-100-hover link-underline-opacity-0 ms-2 px-2" href="{{ "tags/" | relURL }}{{ . | urlize }}">
+          #{{ . }}
+        </a>
         {{- end }}
       </div>
     </article>
+    <!-- <aside>
+      {{ .TableOfContents }}
+    </aside> -->
   </section>
-  <section class="section">
-    <div class="columns is-centered">
-      <div class="column max-800px">
-        <div class="columns is-mobile">
-          <div class="column has-text-left">
-            {{ with .PrevInSection }}
-            <p>Previous post</p>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ end }}
-          </div>
-          <div class="column has-text-right">
-            {{ with .NextInSection }}
-            <p>Next post</p>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ end }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="columns is-centered">
-      <div class="column max-800px">
-        <div class="columns is-mobile">
-          <div class="giscus"></div>
-          {{ partial "posts/giscus.html" . }}
-        </div>
-      </div>
+  <section class="section mx-4 px-5 py-4">
+    <div class="max-900px">
+      {{ partial "posts/giscus.html" . }}
     </div>
   </section>
 </div>

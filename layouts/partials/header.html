@@ -1,10 +1,29 @@
 {{ $pagelink := substr .Page.RelPermalink 0 -1 }}
 <header>
-  <nav class="navbar navbar-expand-lg bg-body-white">
+  <nav class="navbar navbar-expand-lg max-1200px container py-2 fixed-top" style="height: 68px">
+    <a class="navbar-brand text-primary" href="/">Home</a>
+    <div class="offcanvas-lg offcanvas-end ms-auto" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel"
+      data-bs-control="true">
+      <div class="offcanvas-header px-4 pb-2">
+        <h5 class="offcanvas-title" id="bdNavbarOffcanvasLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+          data-bs-target="#bdNavbar"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {{ range .Site.Menus.main }}
+          <li class="nav-item mx-lg-3">
+            <a class="nav-link {{ if eq $pagelink .URL }}active{{ end }}" aria-current="page" href="{{ .URL }}">{{
+              .Name
+              }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
     <div class="bd-navbar-toggle">
-      <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
+        aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd"
@@ -13,56 +32,6 @@
         </svg>
         <span class="d-none fs-6 pe-1">Browse</span>
       </button>
-    </div>
-    <a class="navbar-brand text-primary" href="/">{{ .Site.Title }}</a>
-    <div class="d-flex">
-      {{ range .Site.Menus.social }}
-        {{ if ne .Name "Mail" }}
-        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button">
-          <a class="nav-link" aria-current="page" href="{{ .URL }}" title="{{ .Name }}">
-            <span class="icon d-inline-block align-text-top">
-              <i class='{{ .Pre }}' style="font-size: 1.2em;"></i>
-            </span>
-          </a>
-        </button>
-        {{ end }}
-      {{ end }}
-      <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button">
-        {{- partial "toggle.html" . -}}
-      </button>
-    </div>
-    <div class="offcanvas-lg offcanvas-start flex-grow-1" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-control="true">
-      <div class="offcanvas-header px-4 pb-0">
-        <h5 class="offcanvas-title" id="bdNavbarOffcanvasLabel">{{ .Site.Title }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
-      </div>
-      <div class="offcanvas-body p-4 pt-0 p-lg-0">
-        <hr class="d-lg-none text-black-50">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {{ range .Site.Menus.main }}
-          <li class="nav-item">
-            <a class="nav-link {{ if eq $pagelink .URL }}active{{ end }}" aria-current="page" href="{{ .URL }}">{{ .Name
-              }}</a>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-md-auto d-none d-lg-flex">
-        {{ range .Site.Menus.social }}
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ .URL }}" title="{{ .Name }}">
-            <span class="icon d-inline-block align-text-top">
-              <i class='{{ .Pre }}' style="font-size: 1.2em;"></i>
-            </span>
-          </a>
-        </li>
-        {{ end }}
-        <li class="nav-item">
-          {{- partial "toggle.html" . -}}
-        </li>
-      </ul>
     </div>
   </nav>
 </header>
