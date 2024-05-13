@@ -3,12 +3,12 @@
 <div class="container max-900px">
   <div class="resume pt-3 pt-lg-5">
     <div class="row profile justify-content-between">
-      <div class="col-3">
-        <img class="profile-image border" src="{{ .Params.image }}">
+      <div class="col-md-3 d-flex">
+        <img class="profile-image border mx-auto" src="{{ .Params.image }}">
       </div>
-      <div class="col-8 mt-2 mt-lg-0">
-        <h1 class="resume-name fw-bold mt-3"> {{ .Params.Name }}</h1>
-        <p class="resume-job mt-3"> {{ .Params.Job }} </p>
+      <div class="col-md-8 mt-2 mt-lg-0 d-flex">
+        <h1 class="resume-name fw-bold mt-3 mx-auto"> {{ .Params.Name }}</h1>
+        <p class="resume-job mt-3 mx-auto"> {{ .Params.Job }} </p>
         <hr>
       </div>
     </div>
