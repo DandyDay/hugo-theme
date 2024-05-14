@@ -10,7 +10,7 @@
                 {{ $urlized := $name | urlize}}
                 {{ $currentCategory := substr $currentCategoryTmp 0 -1 }}
                 <a href="/categories/{{ $urlized }}" class="postcards-category{{ if eq $urlized $currentCategory }} postcards-category-active{{ end }}">
-                    {{ $name }}
+                    {{ strings.Title $name }}
                 </a>
                 {{ end }}
             </div>
