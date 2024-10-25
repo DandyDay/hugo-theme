@@ -7,11 +7,13 @@
             <div class="d-flex">
                 <a href="/posts/" class="postcards-category">전체</a>
                 {{range $name, $taxonomy := .Site.Taxonomies.categories}}
+                {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
                 {{ $urlized := $name | urlize}}
                 {{ $currentCategory := substr $currentCategoryTmp 0 -1 }}
-                <a href="/categories/{{ $urlized }}" class="postcards-category{{ if eq $urlized $currentCategory }} postcards-category-active{{ end }}">
-                    {{ strings.Title $name }}
+                <a href="/categories/{{ .Params.slug | default ($name | urlize) }}" class="postcards-category{{ if eq $urlized $currentCategory }} postcards-category-active{{ end }}">
+                    {{ .Title | default $name }}
                 </a>
+                {{ end }}
                 {{ end }}
             </div>
         </div>

@@ -5,9 +5,11 @@
             <div class="d-flex">
                 <a href="/posts/" class="postcards-category postcards-category-active">전체</a>
                 {{range $name, $taxonomy := .Site.Taxonomies.categories}}
-                <a href="/categories/{{ $name | urlize }}" class="postcards-category">
-                    {{ strings.Title $name }}
-                </a>
+                {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
+                    <a href="/categories/{{ .Params.slug | default ($name | urlize) }}" class="postcards-category">
+                    {{ .Title | default $name }}
+                    </a>
+                {{ end }}
                 {{ end }}
             </div>
         </div>
