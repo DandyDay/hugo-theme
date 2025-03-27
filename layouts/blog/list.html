@@ -5,19 +5,15 @@
             <div class="d-flex">
                 <a href="/posts/" class="postcards-category postcards-category-active">전체</a>
                 {{range $name, $taxonomy := .Site.Taxonomies.categories}}
-                {{ with site.GetPage (printf "/categories/%s" $name) }}
-                    <a href="/categories/{{ .Params.slug | default ($name | urlize) }}" class="postcards-category">
-                    {{ .Title | default $name }}
-                    </a>
-                {{ end }}
+                <a href="/categories/{{ $name | urlize }}" class="postcards-category">
+                    {{ strings.Title $name }}
+                </a>
                 {{ end }}
             </div>
         </div>
     </div>
-    {{ $posts := where .Site.RegularPages "Section" "blog" }}
-    {{ $paginator := .Paginate $posts }}
     <div class="post-list mb-5">
-    {{ range $paginator.Pages }}
+    {{ range .Paginator.Pages }}
         {{ partial "widgets/post-card.html" . }}
     {{ end }}
     </div>
