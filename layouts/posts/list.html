@@ -3,7 +3,7 @@
     <div class="d-flex">
         <div>
             <div class="d-flex">
-                <a href="/posts/" class="postcards-category postcards-category-active">전체</a>
+                <a href="/blog/" class="postcards-category postcards-category-active">전체</a>
                 {{range $name, $taxonomy := .Site.Taxonomies.categories}}
                 {{ with $.Site.GetPage (printf "/categories/%s" $name) }}
                     <a href="/categories/{{ .Params.slug | default ($name | urlize) }}" class="postcards-category">
